@@ -62,7 +62,7 @@ function attachInlineValidation() {
     const phone = document.getElementById(`p${n}-phone`);
     if (email) email.addEventListener('blur', () => {
       const value = email.value.trim().toLowerCase();
-      setFieldError(email.id, value && !isValidEmail(value) ? 'Use the format k241234@nu.edu.pk.' : '');
+      setFieldError(email.id, value && !isValidEmail(value) ? 'Use the format k241234@nu.edu.pk' : '');
     });
     if (phone) {
       phone.addEventListener('input', () => {
@@ -72,7 +72,7 @@ function attachInlineValidation() {
       phone.addEventListener('blur', () => {
         const value = normalizePhone(phone.value.trim());
         phone.value = formatPhone(value);
-        setFieldError(phone.id, value && !PHONE_RE.test(value) ? 'Enter exactly 11 digits in the format 03XX XXXXXXX.' : '');
+        setFieldError(phone.id, value && !PHONE_RE.test(value) ? 'Enter exactly 11 digits in the format 03XX XXXXXXX' : '');
       });
     }
   });
@@ -106,8 +106,8 @@ function validate() {
   p.forEach((participant, index) => {
     const n = index + 1;
     if (!participant.name) { setFieldError(`p${n}-name`, 'Enter the participant’s full name.'); ok = false; participantInvalid = true; }
-    if (!isValidEmail(participant.email)) { setFieldError(`p${n}-email`, 'Use the format k241234@nu.edu.pk.'); ok = false; participantInvalid = true; }
-    if (!PHONE_RE.test(participant.phone)) { setFieldError(`p${n}-phone`, 'Enter exactly 11 digits in the format 03XX XXXXXXX.'); ok = false; participantInvalid = true; }
+    if (!isValidEmail(participant.email)) { setFieldError(`p${n}-email`, 'Use the format k241234@nu.edu.pk'); ok = false; participantInvalid = true; }
+    if (!PHONE_RE.test(participant.phone)) { setFieldError(`p${n}-phone`, 'Enter exactly 11 digits in the format 03XX XXXXXXX'); ok = false; participantInvalid = true; }
   });
 
   const emails = p.map(x => x.email);
