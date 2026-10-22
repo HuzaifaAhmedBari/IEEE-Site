@@ -178,9 +178,13 @@ async function handleSubmit(e) {
     const { error: supaErr } = await Promise.race([insertRequest, timeout]);
 
     if (supaErr) {
-      const isDuplicate = supaErr.code === '23505' || /duplicate|unique|already registered/i.test(supaErr.message || '');
+      const errorText = [supaErr.message, supaErr.details, supaErr.hint].filter(Boolean).join(' ');
+      const isVjudgeDuplicate = /reg_vjudge_uniq|vjudge/i.test(errorText);
+      const isEmailDuplicate = !isVjudgeDuplicate && (supaErr.code === '23505' || /duplicate|unique|already registered|email/i.test(errorText));
       throw new Error(
-        isDuplicate
+        isVjudgeDuplicate
+          ? 'That VJudge team ID is already registered. Please check the ID and try again.'
+          : isEmailDuplicate
           ? 'One or more participant emails are already registered in another team. Each participant may only join one team.'
           : 'We could not save your registration. Please try again in a moment.'
       );
