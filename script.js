@@ -3,7 +3,7 @@
    Requires: @supabase/supabase-js v2 (CDN), config.js
    ───────────────────────────────────────────────────────────── */
 
-const EMAIL_RE  = /^[A-Za-z][0-9]{4}@nu\.edu\.pk$/i;
+const EMAIL_RE  = /^[A-Za-z][0-9]{6}@nu\.edu\.pk$/i;
 const PHONE_RE  = /^03\d{9}$/;
 const VJUDGE_RE = /^[A-Za-z0-9_]+$/;
 
