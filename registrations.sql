@@ -19,9 +19,9 @@ create table if not exists public.registrations (
   created_at      timestamptz not null default now(),
   constraint reg_team_name_fmt check (length(trim(team_name)) between 1 and 80),
   constraint reg_vjudge_fmt check (vjudge_id ~ '^[A-Za-z0-9_]+$'),
-  constraint reg_p1_email_fmt check (p1_email ~* '^[A-Za-z][0-9]{4}@nu\.edu\.pk$'),
-  constraint reg_p2_email_fmt check (p2_email ~* '^[A-Za-z][0-9]{4}@nu\.edu\.pk$'),
-  constraint reg_p3_email_fmt check (p3_email ~* '^[A-Za-z][0-9]{4}@nu\.edu\.pk$'),
+  constraint reg_p1_email_fmt check (p1_email ~* '^[A-Za-z][0-9]{6}@nu\.edu\.pk$'),
+  constraint reg_p2_email_fmt check (p2_email ~* '^[A-Za-z][0-9]{6}@nu\.edu\.pk$'),
+  constraint reg_p3_email_fmt check (p3_email ~* '^[A-Za-z][0-9]{6}@nu\.edu\.pk$'),
   constraint reg_p1_phone_fmt check (p1_phone ~ '^03[0-9]{9}$'),
   constraint reg_p2_phone_fmt check (p2_phone ~ '^03[0-9]{9}$'),
   constraint reg_p3_phone_fmt check (p3_phone ~ '^03[0-9]{9}$'),
@@ -44,9 +44,9 @@ alter table public.registrations drop constraint if exists reg_p2_phone_fmt;
 alter table public.registrations drop constraint if exists reg_p3_phone_fmt;
 alter table public.registrations add constraint reg_team_name_fmt check (length(trim(team_name)) between 1 and 80);
 alter table public.registrations add constraint reg_vjudge_fmt check (vjudge_id ~ '^[A-Za-z0-9_]+$');
-alter table public.registrations add constraint reg_p1_email_fmt check (p1_email ~* '^[A-Za-z][0-9]{4}@nu\.edu\.pk$');
-alter table public.registrations add constraint reg_p2_email_fmt check (p2_email ~* '^[A-Za-z][0-9]{4}@nu\.edu\.pk$');
-alter table public.registrations add constraint reg_p3_email_fmt check (p3_email ~* '^[A-Za-z][0-9]{4}@nu\.edu\.pk$');
+alter table public.registrations add constraint reg_p1_email_fmt check (p1_email ~* '^[A-Za-z][0-9]{6}@nu\.edu\.pk$');
+alter table public.registrations add constraint reg_p2_email_fmt check (p2_email ~* '^[A-Za-z][0-9]{6}@nu\.edu\.pk$');
+alter table public.registrations add constraint reg_p3_email_fmt check (p3_email ~* '^[A-Za-z][0-9]{6}@nu\.edu\.pk$');
 alter table public.registrations add constraint reg_p1_phone_fmt check (p1_phone ~ '^03[0-9]{9}$');
 alter table public.registrations add constraint reg_p2_phone_fmt check (p2_phone ~ '^03[0-9]{9}$');
 alter table public.registrations add constraint reg_p3_phone_fmt check (p3_phone ~ '^03[0-9]{9}$');
@@ -112,9 +112,9 @@ create policy "anon_insert_registrations"
   with check (
     length(trim(team_name)) between 1 and 80
     and vjudge_id ~ '^[A-Za-z0-9_]+$'
-    and p1_email ~* '^[A-Za-z][0-9]{4}@nu\.edu\.pk$'
-    and p2_email ~* '^[A-Za-z][0-9]{4}@nu\.edu\.pk$'
-    and p3_email ~* '^[A-Za-z][0-9]{4}@nu\.edu\.pk$'
+    and p1_email ~* '^[A-Za-z][0-9]{6}@nu\.edu\.pk$'
+    and p2_email ~* '^[A-Za-z][0-9]{6}@nu\.edu\.pk$'
+    and p3_email ~* '^[A-Za-z][0-9]{6}@nu\.edu\.pk$'
     and p1_phone ~ '^03[0-9]{9}$'
     and p2_phone ~ '^03[0-9]{9}$'
     and p3_phone ~ '^03[0-9]{9}$'
