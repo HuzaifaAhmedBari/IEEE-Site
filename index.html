@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Register your team for the IEEE Xtreme Membership Qualification contest.">
-  <title>IEEE Xtreme Membership Qualification</title>
+  <meta name="description" content="IEEE Xtreme registration has ended.">
+  <title>IEEE Xtreme - Registration Ended</title>
   <link rel="icon" type="image/png" href="ieee_apple_favicon_57x57.png">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css">
@@ -44,9 +44,29 @@
     .submit.is-success,.submit.is-success:hover{background:#176b46;border-color:#22c55e;box-shadow:none;transform:none}
     @keyframes button-sweep{to{transform:translateX(100%)}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.details,.rules,.registration,footer{opacity:1;transform:none;transition:none}.hero .kicker,.hero h1,.hero-copy,.hero .cta,.hero .event-time{opacity:1;animation:none}.hero-decoration{animation:none}.hero-decoration span{animation:none}.submit,.submit svg{transition:none}.submit.is-loading:before{animation:none;transform:none}.submit:hover:not(:disabled){transform:none}.submit:hover:not(:disabled) svg{transform:none}}
+    body.registration-ended{min-height:100vh;display:grid;place-items:center;background:linear-gradient(135deg,#06132e 0%,#102f5c 58%,#164777 100%)}
+    body.registration-ended > .registration-ended-hero{display:flex}
+    body.registration-ended > .topbar,body.registration-ended > main#top,body.registration-ended > footer{display:none}
+    .registration-ended-hero{display:none;width:min(820px,88%);min-height:560px;position:relative;overflow:hidden;align-items:center;padding:70px 10%;border:1px solid #36557f;border-radius:8px;background:linear-gradient(145deg,#0b1e43,#153f76);box-shadow:0 25px 70px rgba(0,0,0,.28)}
+    .registration-ended-hero:after{content:"";position:absolute;width:240px;height:240px;right:-42px;bottom:-92px;border:1px solid #4774aa;border-radius:50%;box-shadow:0 0 0 30px #4774aa33,0 0 0 62px #4774aa22;opacity:.8}
+    .registration-ended-content{position:relative;z-index:1;max-width:570px;padding-right:34px}
+    .registration-ended-hero .kicker{margin:0 0 22px}
+    .registration-ended-hero h1{font-size:clamp(50px,9vw,92px);letter-spacing:-.08em;line-height:.93;margin:0 0 26px}
+    .registration-ended-hero h1 span{color:var(--coral)}
+    .registration-ended-hero p:not(.kicker){color:#d6e3f4;font-size:18px;max-width:500px;margin:0 0 30px}
+    @media(max-width:760px){.registration-ended-hero{min-height:520px;padding:48px 9%}.registration-ended-hero h1{font-size:57px}.registration-ended-hero p:not(.kicker){font-size:16px}}
   </style>
 </head>
-<body>
+<body class="registration-ended">
+  <section class="registration-ended-hero" aria-labelledby="registration-ended-title">
+    <div class="registration-ended-content">
+      <p class="kicker">IEEE XTREME 20.0</p>
+      <h1 id="registration-ended-title">CODE <span>XTREME.</span></h1>
+      <p>Thank you for your interest in the IEEE Xtreme qualifier. The registration window has now closed.</p>
+      <p>Already registered members will be added to the official WhatsApp group. Please be ready for the qualifier contest on <strong>Saturday, 24 October 2026, from 9:00–10:00 PM PKT.</strong></p>
+    </div>
+  </section>
+  <!-- The original registration page remains below and is intentionally hidden via the registration-ended state. -->
   <header class="topbar"><a class="wordmark" href="#top" aria-label="IEEE Xtreme home"><span>IEEE<span><b>/</b></span>FREE ONLINE QUALIFIER</span></a><span class="edition">20.0 EDITION</span></header>
   <main id="top">
     <section class="hero section-shell" aria-labelledby="hero-title">

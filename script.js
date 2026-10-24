@@ -6,6 +6,7 @@
 const EMAIL_RE  = /^[A-Za-z][0-9]{6}@nu\.edu\.pk$/i;
 const PHONE_RE  = /^03\d{9}$/;
 const VJUDGE_RE = /^[A-Za-z0-9_]+$/;
+const REGISTRATION_CLOSED = true;
 
 // ── DOM refs ──────────────────────────────────────────────────
 const form      = document.getElementById('registration-form');
@@ -129,6 +130,12 @@ function validate() {
 async function handleSubmit(e) {
   e.preventDefault();
   setStatus('');
+
+  if (REGISTRATION_CLOSED) {
+    setStatus('Registration has ended. New submissions are no longer being accepted.', 'error');
+    if (submitBtn) submitBtn.disabled = true;
+    return;
+  }
 
   const result = validate();
   if (result.honeypot) return;
